@@ -1,5 +1,3 @@
-# 📈 dupire-local-vol-surface
-
 ## Local Volatility Model – Dupire Framework
 
 ---
@@ -10,15 +8,15 @@ This project aims to construct a **local volatility surface** from market Europe
 
 We seek to recover a deterministic volatility function  
 
-\[
+$$
 \sigma_{\text{loc}}(S,t)
-\]
+$$
 
 such that the risk-neutral diffusion
 
-\[
+$$
 dS_t = r S_t\,dt + \sigma_{\text{loc}}(S_t,t)\,S_t\,dW_t
-\]
+$$
 
 reproduces observed vanilla option prices across strikes and maturities.
 
@@ -45,28 +43,28 @@ This project explores:
 
 Starting from the call price representation
 
-\[
+$$
 C(K,T) = e^{-r(T-t)} \int_K^{\infty} (S' - K)\, p(S,t;S',T)\, dS',
-\]
+$$
 
-and using the forward Kolmogorov equation for the density \(p\), one obtains the Dupire equation
+and using the forward Kolmogorov equation for the density $p$, one obtains the Dupire equation
 
-\[
+$$
 \frac{\partial C}{\partial T}
 =
 \frac{1}{2} \sigma_{\text{loc}}^2(K,T) K^2 \frac{\partial^2 C}{\partial K^2}
 -
 rK \frac{\partial C}{\partial K}.
-\]
+$$
 
 Solving for local variance yields
 
-\[
+$$
 \sigma_{\text{loc}}^2(K,T)
 =
 \frac{\partial_T C + rK\,\partial_K C}
 {\tfrac12 K^2\,\partial_{KK} C}.
-\]
+$$
 
 This inversion forms the core of the model.
 
@@ -126,7 +124,7 @@ Further technical details will be added as development progresses.
 ## References
 
 - Dupire (1994), *Pricing with a Smile*  
-- Gatheral, *The Volatility Surface*  
+- Gatheral, *The Volatility Surface*
 - Advanced Volatility Modelling lecture notes  
 
 ---
